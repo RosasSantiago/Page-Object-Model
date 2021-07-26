@@ -1,9 +1,9 @@
 import unittest
 from selenium import webdriver
 import time
-from page_objects.Index import Index
-from page_objects.PageItems import PageItems
-from page_objects.DressItem import DressItem
+from Index import Index
+from PageItems import PageItems
+from DressItem import DressItem
 from selenium.webdriver.chrome.options import Options
 
 class SearchCases(unittest.TestCase):
