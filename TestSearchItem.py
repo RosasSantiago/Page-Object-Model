@@ -1,20 +1,27 @@
+# Imports
+import time
 import unittest
 from selenium import webdriver
-import time
-from Index import Index
-from PageItems import PageItems
-from DressItem import DressItem
 from selenium.webdriver.chrome.options import Options
+
+# Pages
+from Index import Index
+from PageItems import PageItems 
+from DressItem import DressItem
+
 
 class SearchCases(unittest.TestCase):
     
     def setUp(self):
+        # Config Driver
         option = Options()
         option.add_argument("start-maximized")
         self.driver = webdriver.Chrome("Chromedriver.exe", chrome_options=option)
         self.driver.get("http://automationpractice.com/index.php")
-        self.IndexPage = Index(self.driver)
         self.driver.implictly_wait(5)
+   
+        # Config Pages    
+        self.IndexPage = Index(self.driver)
         self.ItemsPage = PageItems(self.driver)
         self.DressItem = DressItem(self.driver)
 
