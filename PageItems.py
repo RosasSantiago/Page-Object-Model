@@ -1,22 +1,18 @@
+# Imports Selenium
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+
 
 class PageItems:
 
     def __init__(self, my_Driver):
-        self.sinresultados = '//*[@id="center_column"]/p'
-        self.tittle_banner = '//*[@id="center_column"]/h1/span[1]'
-        self.orange_button = "color_1"
         self.driver = my_Driver
+        self.sinresultados = (By.XPATH, '//*[@id="center_column"]/p')
+        self.tittle_banner = (By.XPATH, '//*[@id="center_column"]/h1/span[1]')
+        self.orange_button = (By.ID, "color_1")
         self.order = (By.ID, "SelectProductSort")
         self.checkbox = (By.CLASS_NAME, "checkbox")
         self.colorcheck = (By.CLASS_NAME, "color-option  ")
-
-    def return_no_elements_text(self):
-        return self.driver.find_element_by_xpath(self.sinresultados).text
-
-    def return_section_title(self):
-        return self.driver.fin_element_by_xpath(self.tittle_banner).text
 
     def click_orange_button(self):
         self.driver.find_element_by_id(self.orange_button).click()
