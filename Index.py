@@ -1,12 +1,15 @@
+# Selenium Imports
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+
 class Index:
     def __init__(self, myDriver):
+        self.driver = myDriver
         self.query_top = (By.ID, 'search_query_top')
         self.query_button = (By.NAME, 'submit_search')
-        self.driver = myDriver
         self.dresses_link = (By.XPATH, '//*[@title="Dressees"')
 
     def search(self,item):
