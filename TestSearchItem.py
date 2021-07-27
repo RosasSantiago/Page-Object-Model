@@ -27,24 +27,18 @@ class SearchCases(unittest.TestCase):
     def test_search_find_dresses(self):
         self.IndexPage.search("dress")
         self.assertTrue('DRESS' in self.ItemsPage.return_section_title())
-     
 
     def test_search_find_tshirts(self):
         self.IndexPage.search("t-shirt")
         self.assertTrue('"T-SHIRT"' in self.ItemsPage.return_section_title())
 
-    def Nuevo(self):
+    def test_nuevo(self):
         self.IndexPage.search("t-shirt")
-
         self.ItemsPage.click_orange_button()
         self.DressItem.enter_quantity("25")
         self.DressItem.add_elements(3)
         number = self.ItemsPage.get_number_of_elements()
         self.assertTrue(number == "28")
-
-    def tearDown(self):
-        self.driver.close()
-        self.driver.quit()
 
     def test_selections(self):
         self.IndexPage.search("t-shirt")
@@ -57,6 +51,10 @@ class SearchCases(unittest.TestCase):
         self.ItemsPage.click_checkbox(2)
         self.ItemsPage.click_checkbox(4)
         self.ItemsPage.click_color(2)
+        
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 
 if __name__ == "__main__":
